@@ -1,40 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
-  <title>Na Praça Burguer</title>
+  <title>Cardapio</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <nav class="navBar">
     <a href="index.html"><img src="imagens/Logo.jpg" alt="Logo" id="logoNav"></a>
-    <h1>Na Praça Burguer</h1>
+    <div id="bannerTopo">
+  <img src="imagens/bannerTopo.jpeg" alt="Banner Topo">
+</div>
+
+
+
+    <!-- icone do menu -->
+
+    <div class="menu-wrapper">
+      <div class="menu-scale">
+        <div class="menu" id="menu">
+
+          <a href="#sobre-nos" class="ingredient bun top">
+            <span>Sobre Nós</span>
+          </a>
+
+          <a href="#cardapio" class="ingredient meat">
+            <span>Cardápio</span>
+          </a>
+          <a href="#suporte" class="ingredient bun bottom">
+            <span>SAC</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+
+
   </nav>
-  
+
   <div id="produtos">
     <script>
-    fetch('https://napracaburguerbackend.onrender.com/produtos')
-  .then(res => res.json())
-  .then(produtos => {
-    const container = document.getElementById('produtos');
-    produtos.forEach(p => {
-      const div = document.createElement('div');
-      div.className = 'card';
-      div.innerHTML = `
+      fetch('https://napracaburguerbackend.onrender.com/produtos')
+        .then(res => res.json())
+        .then(produtos => {
+          const container = document.getElementById('produtos');
+          produtos.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.innerHTML = `
         <img src="${p.imageurl}" alt="${p.name}" style="width:100%; height:auto; border-radius:8px;">
         <h3>${p.name}</h3>
-        <p>${p.description}</p>
+        <p>${p.description}</p> 
         <p><strong>R$ ${p.price}</strong></p>
         <a href="https://wa.me/5581979060586?text=Olá,%20gostaria%20de%20pedir%20um:%20${encodeURIComponent(p.name)}" target="_blank">
           <button>Comprar</button>
         </a>`;
-      container.appendChild(div);
-    });
-  });
+            container.appendChild(div);
+          });
+        });
 
-  </script>
+    </script>
   </div>
 
-  
+  <script src="script.js"></script>
 </body>
+
 </html>
