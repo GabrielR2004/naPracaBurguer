@@ -283,20 +283,127 @@ button {
 
 /* responsividade para telas menores */
 
-@media (max-width: 400px) {
-  .card img {
-    height: 160px;
-  }
-}
-
-/* Banner topo */
-
+/* Tela de 768px */
 @media (max-width: 768px) {
-  .logo {
-    height: 40px;
+
+  /* LOGO */
+  #logoNav {
+    height: 60px;
+    top: 8px;
+    left: 12px;
   }
 
+  /* MENU HAMBURGUER */
+  .menu-wrapper {
+    right: 12px;
+    top: 12px;
+    padding-top: 0;
+  }
+
+  .menu-scale {
+    transform: scale(0.7);
+  }
+
+  /* Degrade de cima no banner */
+
+  #bannerTopo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(
+      to top,
+      rgba(39, 39, 39, 0) 0%,
+      rgba(39, 39, 39, 0.4) 55%,
+      rgba(39, 39, 39, 1) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* EMPURRA O BANNER PARA BAIXO */
   #bannerTopo {
-    max-height: 300px;
+    margin-top: 90px;
+  }
+
+  /* GRID */
+  #produtos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+
+  /* CARD */
+  .card {
+    padding: 16px;
+    min-height: 360px;
+  }
+
+  /* IMAGEM */
+  .card img {
+    height: 180px;
+  }
+
+  /* TEXTO */
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .card p strong {
+    font-size: 16px;
+  }
+
+  /* BOTÃO */
+  .card button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  /* LOGO */
+  #logoNav {
+    height: 90px;
+    left: 20px;
+  }
+
+  /* BANNER */
+  #bannerTopo img {
+    height: 300px;
   }
 }
+
+
+/* Telas menores (400px) */
+
+@media (max-width: 400px) {
+
+  #logoNav {
+  height: 80px;
+}
+
+#bannerTopo::before {
+    height: 20%;
+  }
+
+#bannerTopo {
+    margin-top: 70px;
+  }
+
+  #produtos {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card {
+    min-height: 340px;
+  }
+}
+
